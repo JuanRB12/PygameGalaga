@@ -24,6 +24,9 @@ nave_jugador1_path = os.path.join(current_dir, "spaceships", "jugador1_nave.png"
 nave_enemigo1_path = os.path.join(current_dir, "spaceships", "enemigo1_nave.png")
 nave_enemigo2_path = os.path.join(current_dir, "spaceships", "enemyRed2.png")
 nave_boss_path = os.path.join(current_dir, "spaceships", "enemyBlack1.png")
+laser_jugador1_path = os.path.join(current_dir, "laser", "laserBlue07.png")
+laser_enemigo1_path = os.path.join(current_dir, "laser", "laserGreen13.png")
+laser_boss_path = os.path.join(current_dir, "laser", "laserRed08.png")
 sonido_disparo_path = os.path.join(current_dir, "sonidos", "sfx_laser1.ogg")
 
 # Configurar la ventana
@@ -94,7 +97,7 @@ def jugar():
 
 def ver_puntajes():
 
-    puntajes_path = "PYGAME\GALAGA\puntajes.json"
+    puntajes_path = os.path.join(current_dir, "puntajes.json")
 
     fondo_puntajes = pygame.image.load(fondo_puntajes_path)
     fondo_puntajes = pygame.transform.scale(fondo_puntajes, (ANCHO_VENTANA, ALTO_VENTANA))
@@ -435,7 +438,7 @@ def iniciar_juego():
 
 
 def puntajes(puntaje):
-    puntajes_path = "PYGAME\GALAGA\puntajes.json"
+    puntajes_path = os.path.join(current_dir, "puntajes.json")
     try:
         # Cargar puntajes desde el archivo JSON
         with open(puntajes_path, "r") as file:

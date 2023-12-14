@@ -47,7 +47,7 @@ class Jugador():
     def disparar(self):
         ahora = pygame.time.get_ticks()
         if ahora - self.ultimo_disparo > self.velocidad_disparo:
-            nuevo_proyectil = Proyectil(self.rect.centerx, self.rect.top, "PYGAME\GALAGA\laser\laserBlue07.png", -5, 0)
+            nuevo_proyectil = Proyectil(self.rect.centerx, self.rect.top, laser_jugador1_path, -5, 0)
             self.proyectiles.append(nuevo_proyectil)
             self.ultimo_disparo = ahora
             self.sonido_disparo_jugador.play()
@@ -68,7 +68,7 @@ class Jugador():
 # Clase para representar a los enemigos
 class Enemigo(pygame.sprite.Sprite):
     def __init__(self, x, y):
-        self.sprite = obtener_superficie_de_sprite("PYGAME\GALAGA\spaceships\enemigo1_nave.png")
+        self.sprite = obtener_superficie_de_sprite(nave_enemigo1_path)
         self.frame = 0
         self.imagen = pygame.transform.scale(self.sprite[self.frame], (40, 40))
         self.rect = self.imagen.get_rect()
@@ -111,7 +111,7 @@ class EnemigoQueDispara(pygame.sprite.Sprite):
     def disparar_laser(self):
         ahora = pygame.time.get_ticks()
         if ahora - self.ultimo_disparo > self.velocidad_disparo:
-            nuevo_proyectil = ProyectilEnemigo(self.rect.centerx, self.rect.bottom, "PYGAME\GALAGA\laser\laserGreen13.png", 5, 0)
+            nuevo_proyectil = ProyectilEnemigo(self.rect.centerx, self.rect.bottom, laser_enemigo1_path, 5, 0)
             retraso_aleatorio = random.randint(500, 5000)
             self.proyectiles.append(nuevo_proyectil)
             self.ultimo_disparo = ahora + retraso_aleatorio
@@ -150,7 +150,7 @@ class EnemigoBoss(pygame.sprite.Sprite):
     def disparar_laser(self):
         ahora = pygame.time.get_ticks()
         if ahora - self.ultimo_disparo > self.velocidad_disparo:
-            nuevo_proyectil = ProyectilEnemigoBoss(self.rect.centerx, self.rect.bottom, "PYGAME\GALAGA\laser\laserRed08.png", 5, 0)
+            nuevo_proyectil = ProyectilEnemigoBoss(self.rect.centerx, self.rect.bottom, laser_boss_path, 5, 0)
             retraso_aleatorio = random.randint(1000, 5000)
             self.proyectiles.append(nuevo_proyectil)
             self.ultimo_disparo = ahora + retraso_aleatorio
